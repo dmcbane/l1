@@ -1,0 +1,15 @@
+;; Return the fibonacci of `n`:
+(defn fib (n)
+    (defn fib_helper (n prev acc)
+        (if 
+            (zero? n)
+            acc
+            (fib_helper 
+                (dec n) 
+                acc
+                (+ prev acc))))
+    (fib_helper n 1 0))
+
+(let ((n 20))
+    (foreach i (range n)
+        (println 'fib i '= SPACE (fib i))))

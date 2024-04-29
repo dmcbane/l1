@@ -1,7 +1,14 @@
 ;; Return the factorial of `n`:
 (defn fact (n)
-  (if (zero? n)
-    1
-    (* n (fact (- n 1)))))
+    (defn fact_helper (n acc)
+        (if 
+            (zero? n)
+            acc
+            (fact_helper 
+                (dec n) 
+                (* n acc))))
+    (fact_helper n 1))
 
-(println (fact 100))
+(let ((n 20))
+    (foreach i (range n)
+        (println 'fact i '= SPACE (fact i))))
